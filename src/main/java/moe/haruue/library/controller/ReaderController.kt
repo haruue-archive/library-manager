@@ -42,7 +42,8 @@ class ReaderController {
             @RequestParam(value = "pageSize", defaultValue = "10") pageSize: Int
     ): ResultWrapper<ListWrapper<Reader>> {
         if (search.isNullOrBlank()) {
-            return ResultWrapper(1, "关键词为空")
+            // fallback to list if search is empty
+            return list(pageNumber, pageSize)
         }
         val r = service.query(search!!, pageNumber, pageSize)
         val c = service.countQuery(search)

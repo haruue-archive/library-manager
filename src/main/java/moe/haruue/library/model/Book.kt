@@ -11,9 +11,9 @@ data class Book(
         var bookName: String? = null,
         var isbn: String? = null,
         var bookType: String? = null,
-        var bookPublishDate: Date? = null,
+        var bookPublishDate: String? = null,
         var bookPublishCompany: String? = null,
-        var bookBuyDate: Date? = null,
+        var bookBuyDate: String? = null,
         var bookStatus: String? = null
 ) {
     companion object {

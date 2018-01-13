@@ -27,10 +27,10 @@
         <div class="searchDiv">
             <input class="search" type="text" name="search" placeholder="请输入图书名称...">
             <a href="#">
-                <BUTTON class="searchButton">查询</BUTTON>
+                <BUTTON class="searchButton" id="button-search">查询</BUTTON>
             </a>
             <a href="add_book.html">
-                <BUTTON class="searchButton">添加</BUTTON>
+                <BUTTON class="searchButton" id="button-add">添加</BUTTON>
             </a>
         </div>
     </div>
@@ -134,8 +134,22 @@
                 </td>
             </tr>
         </table>
+
+        <div class="row">
+            <!-- 分页文字信息 -->
+            <div class="col-md-6" id="page_info_area"></div>
+            <!-- 分页条信息 -->
+            <div class="col-md-6" id="page_info_nav"></div>
+        </div>
+
     </div>
 </div>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.twbsPagination.js"></script>
+<script src="js/book_list.js"></script>
+
 
 </body>
 </html>

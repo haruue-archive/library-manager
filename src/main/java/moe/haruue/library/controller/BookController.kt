@@ -42,7 +42,8 @@ class BookController {
             @RequestParam(value = "pageSize", defaultValue = "10") pageSize: Int
     ): ResultWrapper<ListWrapper<Book>> {
         if (search.isNullOrBlank()) {
-            return ResultWrapper(1, "关键词为空")
+            // fallback to list if no search words
+            return list(pageNumber, pageSize)
         }
         val r = service.query(search!!, pageNumber, pageSize)
         val c = service.countQuery(search)
@@ -80,7 +81,9 @@ class BookController {
         if (book == null) {
             return ResultWrapper(2, "缺少参数")
         }
+        println("modify: $book")
         val r = service.modify(book)
+        println("error: $r")
         if (r == 1) {
             return ResultWrapper(STATUS_SUCCESS, MESSAGE_SUCCESS)
         } else {

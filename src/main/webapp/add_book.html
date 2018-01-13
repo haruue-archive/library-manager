@@ -36,19 +36,26 @@
 </nav>
 
 <div class="container">
-    <form action="book_add_do.html" method="post" id="addbook"
+    <form action="javascript:return false;" id="addbook"
           style="position: relative;top: 10%;width: 80%;margin-left: 10%;margin-bottom: 1%">
         <div class="form-group">
             <label for="name">图书名</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="请输入书名">
+            <input type="text" class="form-control" name="bookName" id="name" placeholder="请输入书名">
         </div>
+        <!--
         <div class="form-group">
             <label for="author">作者</label>
             <input type="text" class="form-control" name="author" id="author" placeholder="请输入作者名">
         </div>
+        -->
+        <div class="form-group">
+            <label for="publish">类别</label>
+            <input type="text" class="form-control" name="bookType" id="book-type"
+                   placeholder="请输入出版社">
+        </div>
         <div class="form-group">
             <label for="publish">出版社</label>
-            <input type="text" class="form-control" name="publish" id="publish"
+            <input type="text" class="form-control" name="bookPublishCompany" id="publish"
                    placeholder="请输入出版社">
         </div>
         <div class="form-group">
@@ -57,21 +64,22 @@
         </div>
         <div class="form-group">
             <label for="pubdate">出版日期</label>
-            <input type="text" class="form-control" name="pubdate" id="pubdate"
+            <input type="text" class="form-control" name="bookPublishDate" id="pubdate"
                    placeholder="请输入出版日期">
         </div>
         <div class="form-group">
             <label for="buydate">购买日期</label>
-            <input type="text" class="form-control" name="buydate" id="buydate"
+            <input type="text" class="form-control" name="bookBuyDate" id="buydate"
                    placeholder="请输入购买日期">
         </div>
         <div class="form-group">
             <label for="state">状态</label>
-            <input type="text" class="form-control" name="state" id="state" placeholder="请输入图书状态">
+            <input type="text" class="form-control" name="bookStatus" id="state" placeholder="请输入图书状态">
         </div>
+        <!--suppress HtmlFormInputWithoutLabel -->
+        <input type="text" name="bookId" id="bookId" value="0" style="display: none">
 
-
-        <input type="submit" value="添加" class="btn btn-primary btn-sm" class="text-left">
+        <input type="submit" value="添加" class="btn btn-primary btn-sm text-left" id="button-submit">
 
     </form>
 </div>
@@ -83,5 +91,6 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <!-- 包括所有已编译的插件 -->
 <script src="js/bootstrap.min.js"></script>
+<script src="js/add_book.js"></script>
 </body>
 </html>
