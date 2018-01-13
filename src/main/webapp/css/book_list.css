@@ -1,0 +1,65 @@
+.title{
+	color: #80aecc;
+}
+table{
+	font-size: 13px;
+	font-family:Microsoft YaHei;
+    border-collapse:collapse;
+    border-width: 0px;
+    margin: 0 auto;
+}
+button.modified{
+	background-color:#34b4d7;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    border-radius: 5px;
+    font-family:Microsoft YaHei;
+    width: 50px;
+    height: 27px;
+    margin-left: 65px;
+}
+button.delete{
+	background-color:#34b4d7;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    border-radius:5px;
+    font-family:Microsoft YaHei;
+    width: 50px;
+    height: 27px;
+    margin-left: 35px;
+}
+.containt{
+	color: #6f6e6f;
+}
+hr{
+	width: 100px;
+	color:#8ecde0;
+	text-align: center;
+	vertical-align: middle;
+}
+.searchButton
+{
+    background-color:#34b4d7;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    border-radius: 5px;
+    font-family:Microsoft YaHei;
+    width: 65px;
+    height: 35px;
+    margin-left: 20px;
+    letter-spacing:0px;
+}
+td{ border-bottom:1.5px solid #8ecde0;width: 100px;text-align: center;height: 30px;}
+th{ border-bottom:2.5px solid #8ecde0;width: 100px;text-align: center;height: 30px;}
