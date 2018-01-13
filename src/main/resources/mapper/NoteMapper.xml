@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="moe.haruue.library.mapper.NoteMapper" >
+
+    <select id="findOne" resultType="Note">
+        SELECT t_note.note_id,
+            t_note.user_id, t_reader.user_name,
+            t_note.book_id, t_book.book_name,
+            t_note.note_date, t_note.note_deadline, t_note.note_status
+        FROM `t_note`, `t_book`, `t_reader`
+        WHERE t_note.note_id = #{noteId}
+          AND t_note.book_id = t_book.book_id
+          AND t_note.user_id = t_reader.user_id
+    </select>
+
+    <select id="queryByUserId" resultType="Note">
+        SELECT t_note.note_id,
+            t_note.user_id, t_reader.user_name,
+            t_note.book_id, t_book.book_name,
+            t_note.note_date, t_note.note_deadline, t_note.note_status
+        FROM `t_note`, `t_book`, `t_reader`
+        WHERE t_note.user_id = #{userId}
+              AND t_note.book_id = t_book.book_id
+              AND t_note.user_id = t_reader.user_id
+        LIMIT #{index}, #{pageSize}
+    </select>
+
+    <select id="countQueryByUserId" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS VALUE
+        FROM `t_note`, `t_book`, `t_reader`
+        WHERE t_note.user_id = #{userId}
+              AND t_note.book_id = t_book.book_id
+              AND t_note.user_id = t_reader.user_id
+    </select>
+
+    <select id="queryByBookId" resultType="Note">
+        SELECT t_note.note_id,
+        t_note.user_id, t_reader.user_name,
+        t_note.book_id, t_book.book_name,
+        t_note.note_date, t_note.note_deadline, t_note.note_status
+        FROM `t_note`, `t_book`, `t_reader`
+        WHERE t_note.book_id = #{bookId}
+            AND t_note.book_id = t_book.book_id
+            AND t_note.user_id = t_reader.user_id
+        LIMIT #{index}, #{pageSize}
+    </select>
+
+    <select id="countQueryByBookId" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS VALUE
+        FROM `t_note`, `t_book`, `t_reader`
+        WHERE t_note.book_id = #{bookId}
+            AND t_note.book_id = t_book.book_id
+            AND t_note.user_id = t_reader.user_id
+    </select>
+
+    <insert id="insertOne" parameterType="Note">
+        INSERT INTO `t_note` (
+            note_id,
+            user_id,
+            book_id,
+            note_date,
+            note_deadline,
+            note_status
+        ) VALUES (
+            #{noteId},
+            #{userId},
+            #{bookId},
+            #{noteDate},
+            #{noteDeadline},
+            #{noteStatus}
+        )
+    </insert>
+
+    <update id="updateOne" parameterType="Note">
+        UPDATE `t_note`
+            SET user_id = #{userId},
+                book_id = #{bookId},
+                note_date = #{noteDate},
+                note_deadline = #{noteDeadline},
+                note_status = #{noteStatus}
+        WHERE note_id = #{noteId}
+    </update>
+
+</mapper>
