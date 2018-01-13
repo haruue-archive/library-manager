@@ -6,32 +6,40 @@
 
 
     <select id="findOne" resultType="Reader">
-        SELECT * FROM `t_reader`
+        SELECT `user_id`, `user_name`, `user_email`, `user_tel`
+        FROM `t_reader`
         WHERE `user_id` = #{userId}
+        AND `user_del` IS NULL
     </select>
 
     <select id="findAll" resultType="Reader">
-        SELECT * FROM `t_reader`
+        SELECT `user_id`, `user_name`, `user_email`, `user_tel`
+        FROM `t_reader`
+        WHERE `user_del` IS NULL
         LIMIT #{index}, #{pageSize}
     </select>
 
     <select id="countAll" resultType="java.lang.Integer">
         SELECT COUNT(*) AS VALUE FROM `t_reader`
+        WHERE `user_del` IS NULL
     </select>
 
     <select id="query" resultType="Reader">
-        SELECT * FROM `t_reader`
-        WHERE `user_name` LIKE #{search}
+        SELECT `user_id`, `user_name`, `user_email`, `user_tel`
+        FROM `t_reader`
+        WHERE (`user_name` LIKE #{search}
             OR `user_id` LIKE #{search}
-            OR `user_email` LIKE #{search}
+            OR `user_email` LIKE #{search})
+            AND `user_del` IS NULL
         LIMIT #{index}, #{pageSize}
     </select>
 
     <select id="countQuery" resultType="java.lang.Integer">
         SELECT COUNT(*) AS VALUE FROM `t_reader`
-        WHERE `user_name` LIKE #{search}
+        WHERE (`user_name` LIKE #{search}
               OR `user_id` LIKE #{search}
-              OR `user_email` LIKE #{search}
+              OR `user_email` LIKE #{search})
+              AND `user_del` IS NULL
     </select>
 
     <insert id="insertOne" parameterType="Reader">
@@ -52,11 +60,14 @@
             user_email = #{email},
             user_tel = #{userTel}
         WHERE user_id = #{userId}
+            AND user_del IS NULL
     </update>
 
     <delete id="deleteOne">
-        DELETE FROM `t_reader`
-        WHERE `user_id` = #{userId}
+        UPDATE `t_reader`
+        SET user_del = 1
+        WHERE user_id = #{userId}
+            AND user_del IS NULL
     </delete>
 
 </mapper>
