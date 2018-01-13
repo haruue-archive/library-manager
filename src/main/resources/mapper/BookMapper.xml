@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="moe.haruue.library.mapper.BookMapper" >
+
+
+    <select id="findOne" resultType="Book">
+        SELECT * FROM `t_book`
+        WHERE `book_id` = #{bookId}
+    </select>
+
+    <select id="findAll" resultType="Book">
+        SELECT * FROM `t_book`
+        LIMIT #{index}, #{pageSize}
+    </select>
+
+    <select id="query" resultType="Book">
+        SELECT * FROM `t_book`
+        WHERE `book_name` LIKE #{search}
+        LIMIT #{index}, #{pageSize}
+    </select>
+
+    <insert id="insertOne" parameterType="Book">
+        INSERT INTO `t_book` (
+            book_name,
+            isbn,
+            book_type,
+            book_publish_date,
+            book_publish_company,
+            book_buy_date,
+            book_status
+        ) VALUES (
+            #{bookName},
+            #{isbn},
+            #{bookType},
+            #{bookPublishDate},
+            #{bookPublishCompany},
+            #{bookBuyDate},
+            #{bookStatus}
+        )
+    </insert>
+
+    <update id="updateOne" parameterType="Book">
+        UPDATE `t_book`
+        SET book_name = #{bookName},
+            isbn = #{isbn},
+            book_type = #{bookType},
+            book_publish_date = #{bookPublishDate},
+            book_publish_company = #{bookPublishCompany},
+            book_buy_date = #{bookBuyDate},
+            book_status = #{bookStatus}
+        WHERE book_id = #{bookId}
+    </update>
+
+    <delete id="deleteOne">
+        DELETE FROM `t_book`
+        WHERE `book_id` = #{bookId}
+    </delete>
+
+</mapper>
