@@ -21,8 +21,16 @@ class BookServiceImpl : BookService {
         return mapper.findAll(pageNumber * pageSize, pageSize)
     }
 
+    override fun count(): Int {
+        return mapper.countAll()
+    }
+
     override fun query(search: String, pageNumber: Int, pageSize: Int): List<Book> {
         return mapper.query("%$search%", pageNumber * pageSize, pageSize)
+    }
+
+    override fun countQuery(search: String): Int {
+        return mapper.countQuery("%$search%")
     }
 
     override fun add(book: Book): Int {

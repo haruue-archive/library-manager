@@ -10,7 +10,9 @@ import org.apache.ibatis.annotations.Param
 interface BookMapper {
     fun findOne(@Param("bookId") bookId: Int): Book?
     fun findAll(@Param("index") index: Int, @Param("pageSize") pageSize: Int): List<Book>
+    fun countAll(): Int
     fun query(@Param("search") search: String, @Param("index") index: Int, @Param("pageSize") pageSize: Int): List<Book>
+    fun countQuery(@Param("search") search: String): Int
     fun insertOne(book: Book): Int
     fun updateOne(book: Book): Int
     fun deleteOne(@Param("bookId") bookId: Int): Int

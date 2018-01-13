@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="moe.haruue.library.mapper.ReaderMapper" >
+
+
+    <select id="findOne" resultType="Reader">
+        SELECT * FROM `t_reader`
+        WHERE `user_id` = #{userId}
+    </select>
+
+    <select id="findAll" resultType="Reader">
+        SELECT * FROM `t_reader`
+        LIMIT #{index}, #{pageSize}
+    </select>
+
+    <select id="countAll" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS VALUE FROM `t_reader`
+    </select>
+
+    <select id="query" resultType="Reader">
+        SELECT * FROM `t_reader`
+        WHERE `user_name` LIKE #{search}
+            OR `user_id` LIKE #{search}
+            OR `user_email` LIKE #{search}
+        LIMIT #{index}, #{pageSize}
+    </select>
+
+    <select id="countQuery" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS VALUE FROM `t_reader`
+        WHERE `user_name` LIKE #{search}
+              OR `user_id` LIKE #{search}
+              OR `user_email` LIKE #{search}
+    </select>
+
+    <insert id="insertOne" parameterType="Reader">
+        INSERT INTO `t_reader` (
+            user_name,
+            user_email,
+            user_tel
+        ) VALUES (
+            #{userName},
+            #{userEmail},
+            #{userTel}
+        )
+    </insert>
+
+    <update id="updateOne" parameterType="Reader">
+        UPDATE `t_reader`
+        SET user_name = #{userName},
+            user_email = #{email},
+            user_tel = #{userTel}
+        WHERE user_id = #{userId}
+    </update>
+
+    <delete id="deleteOne">
+        DELETE FROM `t_reader`
+        WHERE `user_id` = #{userId}
+    </delete>
+
+</mapper>

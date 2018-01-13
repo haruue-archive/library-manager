@@ -15,5 +15,18 @@ data class ResultWrapper<out D>(
 )
 
 data class ListWrapper<out D>(
-        val list: List<D>
-)
+        val list: List<D>,
+        val currentPage: Int,
+        val pageCount: Int,
+        val pageSize: Int,
+        val itemCount: Int
+) {
+    constructor(
+            list: List<D>,
+            currentPage: Int,
+            pageSize: Int,
+            itemCount: Int
+    ) : this(list, currentPage,
+            Math.ceil(itemCount.toDouble() / pageSize).toInt(),
+            pageSize, itemCount)
+}

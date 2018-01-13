@@ -10,7 +10,11 @@ interface BookService {
 
     fun list(pageNumber: Int, pageSize: Int): List<Book>
 
+    fun count(): Int
+
     fun query(search: String, pageNumber: Int, pageSize: Int): List<Book>
+
+    fun countQuery(search: String): Int
 
     fun add(book: Book): Int
 

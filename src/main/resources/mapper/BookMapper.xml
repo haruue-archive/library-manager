@@ -15,10 +15,21 @@
         LIMIT #{index}, #{pageSize}
     </select>
 
+    <select id="countAll" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS VALUE FROM `t_book`
+    </select>
+
     <select id="query" resultType="Book">
         SELECT * FROM `t_book`
         WHERE `book_name` LIKE #{search}
+            OR `isbn` LIKE #{search}
         LIMIT #{index}, #{pageSize}
+    </select>
+
+    <select id="countQuery" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS VALUE FROM `t_book`
+        WHERE `book_name` LIKE #{search}
+              OR `isbn` LIKE #{search}
     </select>
 
     <insert id="insertOne" parameterType="Book">
