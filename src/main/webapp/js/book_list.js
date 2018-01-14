@@ -37,7 +37,6 @@ $(document).ready(function () {
         // table header
         var th = $("<tr class='title'></tr>")
             .append("<th>图书编号</th>")
-            .append("<th>图书编号</th>")
             .append("<th>图书名称</th>")
             .append("<th>图书类型</th>")
             .append("<th>图书出版社</th>")
