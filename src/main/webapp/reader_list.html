@@ -6,8 +6,8 @@
     <link rel="stylesheet" type="text/css" href="css/book_list.css">
 </head>
 <body>
-<div class="container">
-    <div class="nav">
+<div class="navs">
+    <div class="container">
         <div class="logo">
             <div class="imageLogo"></div>
             <span class="spanLogo">图书借阅管理系统</span>
@@ -21,20 +21,24 @@
                 <li style="border-bottom: 2px solid #34b4d7;">读者管理</li>
             </a>
             <a href="note_list.html">
-                <li>借阅管理</li>
+                <li>近期借阅</li>
             </a>
         </ul>
+    </div>
+</div>
+<div class="container">
+    <div class="nav">
+
         <div class="searchDiv">
-            <input class="search" type="text" name="search" placeholder="请输入读者信息...">
-            <a href="#">
+            <input class="search" type="text" name="search" placeholder="请输入图书名称...">
+            <a href="">
                 <BUTTON class="searchButton" id="button-search">查询</BUTTON>
             </a>
-            <a href="add_reader.html">
+            <a href="add_book.html">
                 <BUTTON class="searchButton" id="button-add">添加</BUTTON>
             </a>
         </div>
     </div>
-
 
     <div class="tableDiv">
 
@@ -151,6 +155,8 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.twbsPagination.js"></script>
 <script src="js/reader_list.js"></script>
-
+<footer>
+    <p>第六小组版权所有</p>
+</footer>
 </body>
 </html>
