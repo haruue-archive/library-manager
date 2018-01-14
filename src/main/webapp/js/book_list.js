@@ -30,6 +30,19 @@ $(document).ready(function () {
     var buildTable = function (result) {
         var booksTable = $(".book_list tbody");
         booksTable.empty();
+        // table header
+        var th = $("<tr class='title'></tr>")
+            .append("<th>图书编号</th>")
+            .append("<th>图书编号</th>")
+            .append("<th>图书名称</th>")
+            .append("<th>图书类型</th>")
+            .append("<th>图书出版社</th>")
+            .append("<th>图书出版日期</th>")
+            .append("<th>图书购置时间</th>")
+            .append("<th style='border:none;'></th>")
+            .append("<th style='border:none;'></th>");
+        booksTable.append(th);
+        // table content
         var books = result.data.list;
         $.each(books, function (index, item) {
             var bookId = $("<td></td>").append(item.bookId);
