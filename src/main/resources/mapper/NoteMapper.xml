@@ -74,14 +74,12 @@
 
     <insert id="insertOne" parameterType="Note">
         INSERT INTO `t_note` (
-            note_id,
             user_id,
             book_id,
             note_date,
             note_deadline,
             note_status
         ) VALUES (
-            #{noteId},
             #{userId},
             #{bookId},
             #{noteDate},
