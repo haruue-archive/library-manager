@@ -30,7 +30,7 @@ class ReaderServiceImpl : ReaderService {
     }
 
     override fun countQuery(search: String): Int {
-        return countQuery("%$search%")
+        return mapper.countQuery("%$search%")
     }
 
     override fun add(reader: Reader): Int {
