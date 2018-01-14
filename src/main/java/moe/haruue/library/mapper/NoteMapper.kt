@@ -11,6 +11,10 @@ interface NoteMapper {
 
     fun findOne(@Param("noteId") noteId: Int): Note?
 
+    fun list(@Param("index") index: Int,
+             @Param("pageSize") pageSize: Int): List<Note>
+    fun count(): Int
+
     fun queryByUserId(@Param("userId") userId: Int,
                       @Param("index") index: Int,
                       @Param("pageSize") pageSize: Int): List<Note>

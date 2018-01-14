@@ -51,6 +51,21 @@ class NoteController {
                 itemCount = c))
     }
 
+    @RequestMapping("list")
+    @ResponseBody
+    fun list(
+            @RequestParam(value = "pageNumber", defaultValue = "0") pageNumber: Int,
+            @RequestParam(value = "pageSize", defaultValue = "10") pageSize: Int
+    ): ResultWrapper<ListWrapper<Note>> {
+        val r = service.list(pageNumber, pageSize)
+        val c = service.count()
+        return ResultWrapper(STATUS_SUCCESS, MESSAGE_SUCCESS, ListWrapper(
+                list = r,
+                currentPage = pageNumber,
+                pageSize = pageSize,
+                itemCount = c))
+    }
+
     @RequestMapping("get")
     @ResponseBody
     fun get(@RequestParam("noteId") noteId: Int): ResultWrapper<Note> {
@@ -85,4 +100,5 @@ class NoteController {
             return ResultWrapper(1, "发生错误")
         }
     }
+
 }

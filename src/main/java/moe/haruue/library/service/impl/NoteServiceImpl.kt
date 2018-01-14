@@ -17,6 +17,14 @@ class NoteServiceImpl : NoteService {
     @Autowired
     lateinit var mapper: NoteMapper
 
+    override fun list(pageNumber: Int, pageSize: Int): List<Note> {
+        return mapper.list(pageNumber * pageSize, pageSize)
+    }
+
+    override fun count(): Int {
+        return mapper.count()
+    }
+
     override fun queryByUserId(userId: Int, pageNumber: Int, pageSize: Int): List<Note> {
         return mapper.queryByUserId(userId, pageNumber * pageSize, pageSize)
     }

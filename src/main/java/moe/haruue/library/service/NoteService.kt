@@ -8,6 +8,9 @@ import moe.haruue.library.model.Note
  */
 interface NoteService {
 
+    fun list(pageNumber: Int, pageSize: Int): List<Note>
+    fun count(): Int
+
     fun queryByUserId(userId: Int, pageNumber: Int, pageSize: Int): List<Note>
     fun countQueryByUserId(userId: Int): Int
 

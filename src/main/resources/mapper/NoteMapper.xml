@@ -15,6 +15,23 @@
           AND t_note.user_id = t_reader.user_id
     </select>
 
+    <select id="list" resultType="Note">
+        SELECT t_note.note_id,
+            t_note.user_id, t_reader.user_name,
+            t_note.book_id, t_book.book_name,
+            t_note.note_date, t_note.note_deadline, t_note.note_status
+        FROM `t_note`, `t_book`, `t_reader`
+        WHERE t_note.book_id = t_book.book_id
+            AND t_note.user_id = t_reader.user_id
+        ORDER BY user_id DESC
+        LIMIT #{index}, #{pageSize}
+    </select>
+
+    <select id="count" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS VALUE
+        FROM `t_note`
+    </select>
+
     <select id="queryByUserId" resultType="Note">
         SELECT t_note.note_id,
             t_note.user_id, t_reader.user_name,

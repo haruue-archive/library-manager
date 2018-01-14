@@ -81,6 +81,11 @@ $(document).ready(function () {
         })
     };
 
+    var recentMode = function () {
+        currentQueryMethod = "list";
+        toPage(1);
+    };
+
     var bookMode = function (bookId) {
         currentQueryMethod = "queryByBookId";
         currentIdType = "bookId";
@@ -104,10 +109,10 @@ $(document).ready(function () {
                 var bookId = window.location.search.split("=")[1];
                 bookMode(bookId);
             } else {
-                window.location.href = "book_list.html";
+                recentMode()
             }
         } else {
-            window.location.href = "book_list.html";
+            recentMode()
         }
     };
 
