@@ -151,3 +151,6 @@ form{
 	font-family:Microsoft YaHei;
 	padding-left: 50px;
 }
+a {
+	text-decoration: none;
+}
