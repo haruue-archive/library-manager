@@ -6,8 +6,8 @@ $(document).ready(function () {
         $("#isbn").val(book.isbn);
         $("#book-type").val(book.bookType);
         $("#publish").val(book.bookPublishCompany);
-        $("#pubdate").val((new Date(book.bookPublishDate)).toLocaleDateString());
-        $("#buydate").val((new Date(book.bookBuyDate)).toLocaleDateString());
+        $("#pubdate").val(book.bookPublishDate);
+        $("#buydate").val(book.bookBuyDate);
         $("#state").val(book.bookStatus)
     };
 
