@@ -1,7 +1,5 @@
 package moe.haruue.library.model
 
-import java.sql.Date
-
 /**
  *
  * @author Haruue Icymoon haruue@caoyue.com.cn
@@ -12,8 +10,8 @@ data class Note(
     var userName: String? = null,
     var bookId: Int = 0,
     var bookName: String? = null,
-    var noteDate: Date? = null,
-    var noteDeadline: Date? = null,
+    var noteDate: String? = null,
+    var noteDeadline: String? = null,
     var noteStatus: Int = 0
 ) {
     companion object {
