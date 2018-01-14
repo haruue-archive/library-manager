@@ -57,7 +57,7 @@
     <update id="updateOne" parameterType="Reader">
         UPDATE `t_reader`
         SET user_name = #{userName},
-            user_email = #{email},
+            user_email = #{userEmail},
             user_tel = #{userTel}
         WHERE user_id = #{userId}
             AND user_del IS NULL
