@@ -27,6 +27,10 @@ $(document).ready(function () {
         }
     };
 
+    var borrowBook = function (userId) {
+        window.location.href = "note_list.html?userId=" + userId;
+    };
+
     var buildTable = function (result) {
         var readersTable = $(".book_list tbody");
         readersTable.empty();
@@ -36,6 +40,7 @@ $(document).ready(function () {
             .append("<th>姓名</th>")
             .append("<th>邮箱</th>")
             .append("<th>电话</th>")
+            .append("<th style='border:none;'></th>")
             .append("<th style='border:none;'></th>")
             .append("<th style='border:none;'></th>");
         readersTable.append(th);
@@ -55,6 +60,11 @@ $(document).ready(function () {
                 deleteReader(item.userId, item.userName);
             });
             var deleteButtonPanel = $("<td style='border: none;'></td>").append(deleteButton);
+            var borrowButton = $("<button class='note'></button>").append("借阅信息");
+            borrowButton.click(function () {
+                borrowBook(item.userId);
+            });
+            var borrowButtonPanel = $("<td style='border: none;'></td>").append(borrowButton);
             $("<tr class='containt'></tr>")
                 .append(userId)
                 .append(userName)
@@ -62,6 +72,7 @@ $(document).ready(function () {
                 .append(userTel)
                 .append(modifyButtonPanel)
                 .append(deleteButtonPanel)
+                .append(borrowButtonPanel)
                 .appendTo(readersTable)
         })
     };

@@ -27,6 +27,10 @@ $(document).ready(function () {
         }
     };
 
+    var borrowBook = function (bookId) {
+        window.location.href = "note_list.html?bookId=" + bookId;
+    };
+
     var buildTable = function (result) {
         var booksTable = $(".book_list tbody");
         booksTable.empty();
@@ -39,6 +43,7 @@ $(document).ready(function () {
             .append("<th>图书出版社</th>")
             .append("<th>图书出版日期</th>")
             .append("<th>图书购置时间</th>")
+            .append("<th style='border:none;'></th>")
             .append("<th style='border:none;'></th>")
             .append("<th style='border:none;'></th>");
         booksTable.append(th);
@@ -61,6 +66,11 @@ $(document).ready(function () {
                 deleteBook(item.bookId, item.bookName);
             });
             var deleteButtonPanel = $("<td style='border: none;'></td>").append(deleteButton);
+            var borrowButton = $("<button class='note'></button>").append("借阅信息");
+            borrowButton.click(function () {
+                borrowBook(item.bookId);
+            });
+            var borrowButtonPanel = $("<td style='border: none;'></td>").append(borrowButton);
             $("<tr class='containt'></tr>")
                 .append(bookId)
                 .append(bookName)
@@ -70,6 +80,7 @@ $(document).ready(function () {
                 .append(bookBuyDate)
                 .append(modifyButtonPanel)
                 .append(deleteButtonPanel)
+                .append(borrowButtonPanel)
                 .appendTo(booksTable)
         })
     };
