@@ -6,30 +6,61 @@
 
 
     <select id="findOne" resultType="Book">
-        SELECT * FROM `t_book`
+        SELECT
+            book_id,
+            book_name,
+            isbn,
+            book_type,
+            book_publish_date,
+            book_publish_company,
+            book_buy_date,
+            book_status
+        FROM `t_book`
         WHERE `book_id` = #{bookId}
     </select>
 
     <select id="findAll" resultType="Book">
-        SELECT * FROM `t_book`
+        SELECT
+            book_id,
+            book_name,
+            isbn,
+            book_type,
+            book_publish_date,
+            book_publish_company,
+            book_buy_date,
+            book_status
+        FROM `t_book`
+        WHERE `book_del` IS NULL
         LIMIT #{index}, #{pageSize}
     </select>
 
     <select id="countAll" resultType="java.lang.Integer">
         SELECT COUNT(*) AS VALUE FROM `t_book`
+        WHERE `book_del` IS NULL
     </select>
 
     <select id="query" resultType="Book">
-        SELECT * FROM `t_book`
-        WHERE `book_name` LIKE #{search}
-            OR `isbn` LIKE #{search}
+        SELECT
+            book_id,
+            book_name,
+            isbn,
+            book_type,
+            book_publish_date,
+            book_publish_company,
+            book_buy_date,
+            book_status
+        FROM `t_book`
+        WHERE (`book_name` LIKE #{search}
+              OR `isbn` LIKE #{search})
+              AND `book_del` IS NULL
         LIMIT #{index}, #{pageSize}
     </select>
 
     <select id="countQuery" resultType="java.lang.Integer">
         SELECT COUNT(*) AS VALUE FROM `t_book`
-        WHERE `book_name` LIKE #{search}
-              OR `isbn` LIKE #{search}
+        WHERE (`book_name` LIKE #{search}
+              OR `isbn` LIKE #{search})
+              AND `book_del` IS NULL
     </select>
 
     <insert id="insertOne" parameterType="Book">
@@ -65,8 +96,9 @@
     </update>
 
     <delete id="deleteOne">
-        DELETE FROM `t_book`
-        WHERE `book_id` = #{bookId}
+        UPDATE `t_book`
+        SET book_del = 1
+        WHERE book_id = #{bookId}
     </delete>
 
 </mapper>
