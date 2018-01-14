@@ -131,3 +131,21 @@ p{
 	font-size: 13px;
 	font-family:Microsoft YaHei;
 }
+.form1
+{
+	height: 300px;
+	width: 600px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -250px;
+	margin-top: -150px;
+
+
+}
+form{
+	color: #4f9bc2;
+	font-size: 16px;
+	font-family:Microsoft YaHei;
+	padding-left: 50px;
+}

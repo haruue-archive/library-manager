@@ -81,7 +81,7 @@ $(document).ready(function () {
             success: function (result) {
                 if (result.status !== 0) {
                     // error occurred, fallback to add mode
-                    window.location.href = "add_book.html";
+                    window.location.href = "add_note.html";
                     return;
                 }
                 setNoteInfo(result.data);
@@ -95,7 +95,7 @@ $(document).ready(function () {
             },
             error: function () {
                 // error occurred, fallback to add mode
-                window.location.href = "add_book.html";
+                window.location.href = "add_note.html";
             }
         })
     };

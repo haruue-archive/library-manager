@@ -28,7 +28,7 @@ $(document).ready(function () {
             var noteDeadline = $("<td></td>").append(item.noteDeadline);
             var modifyButton = $("<button class='modified'></button>").append("修 改");
             modifyButton.click(function () {
-                editNote(item.bookId);
+                editNote(item.noteId);
             });
             var modifyButtonPanel = $("<td style='border: none;'></td>").append(modifyButton);
             $("<tr class='containt'></tr>")
