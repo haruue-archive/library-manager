@@ -6,7 +6,22 @@ table{
 	font-family:Microsoft YaHei;
     border-collapse:collapse;
     border-width: 0px;
-    margin: 0 auto;
+    width: 100%;
+}
+button.note
+{
+    background-color:#34b4d7;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    border-radius: 5px;
+    font-family:Microsoft YaHei;
+    width: 80px;
+    height: 27px;
+    margin-left: 35px;
 }
 button.modified{
 	background-color:#34b4d7;
@@ -59,7 +74,14 @@ hr{
     width: 65px;
     height: 35px;
     margin-left: 20px;
-    letter-spacing:0px;
 }
-td{ border-bottom:1.5px solid #8ecde0;width: 100px;text-align: center;height: 30px;}
-th{ border-bottom:2.5px solid #8ecde0;width: 100px;text-align: center;height: 30px;}
+td{ border-bottom:1.5px solid #8ecde0;width: 150px;text-align: center;height: 30px;}
+th{ border-bottom:2.5px solid #8ecde0;width: 150px;text-align: center;height: 30px;}
+button:hover{
+    background-color:#3498DB;
+    box-shadow: 3px 2px 2px #888888;
+}
+button:link{
+    border:1px solid  #AED6F1 ;
+    border-radius: 5px;
+}
